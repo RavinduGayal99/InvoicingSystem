@@ -15,21 +15,21 @@ import java.sql.Statement;
  * @author Ravindu
  */
 public class productDAO {
-    static int insertProduct(product p) throws ClassNotFoundException,SQLException{
+    public static int insertProduct(product p) throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         String queryString = "insert into product_details(product_id, product_name, description, purchase_price, selling_price, quantity) values('"+p.getpid()+"','"+p.getpName()+"','"+p.getdesc()+"','"+p.getpPrice()+"','"+p.getsPrice()+"','"+p.getquantity()+"')";
         int i = stmt.executeUpdate(queryString);
         return i;
     }
-    static int deleteProduct(product p) throws ClassNotFoundException,SQLException{
+    public static int deleteProduct(product p) throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         String queryString = "delete from product_details where customer_id='"+p.getpid()+"'";
         int i = stmt.executeUpdate(queryString);
         return i;
     }
-    static void selectProduct() throws ClassNotFoundException,SQLException{
+    public static void selectProduct() throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         String queryString = "select * from product_details";
@@ -46,14 +46,14 @@ public class productDAO {
         }
        
     }
-    static int updateProduct(product p) throws ClassNotFoundException,SQLException{
+    public static int updateProduct(product p) throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         String queryString = "";
         int i = stmt.executeUpdate(queryString);
         return i;
     }
-    static int updateProductStock(product p) throws ClassNotFoundException,SQLException{
+    public static int updateProductStock(product p) throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         String queryString = "update product where product_id='"+p.getpid()+"' set quantity='"+p.getquantity()+"'";

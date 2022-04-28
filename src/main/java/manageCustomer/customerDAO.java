@@ -15,21 +15,21 @@ import java.sql.Statement;
  * @author Ravindu
  */
 public class customerDAO {
-    static int insertCustomer(customer c) throws ClassNotFoundException,SQLException{
+    public static int insertCustomer(customer c) throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         String queryString = "insert into customer_details(customer_id, customer_name, email, address, contact_number, date_of_birth, gender) values('"+c.getcId()+"','"+c.getc_name()+"','"+c.getemail()+"','"+c.getaddress()+"','"+c.getcNumber()+"','"+c.getdob()+"','"+c.getgender()+"')";
         int i = stmt.executeUpdate(queryString);
         return i;
     }
-    static int deleteCustomer(customer c) throws ClassNotFoundException,SQLException{
+    public static int deleteCustomer(customer c) throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         String queryString = "delete from customer_details where customer_id='"+c.getcId()+"'";
         int i =stmt.executeUpdate(queryString);
         return i;
     }
-    static void selectCustomer(customer c) throws ClassNotFoundException,SQLException{
+    public static void selectCustomer() throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         String queryString = "select * from customer_details";
@@ -46,7 +46,7 @@ public class customerDAO {
             System.out.println(id+" "+name+" "+email+" "+address+" "+no+" "+dob+" "+gender);
         }
     }
-    static int updateCustomer(customer c) throws ClassNotFoundException,SQLException{
+    public static int updateCustomer(customer c) throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         String queryString = "update customer_details where customer_id='"+c.getcId()+"' set";

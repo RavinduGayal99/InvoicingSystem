@@ -6,8 +6,10 @@ package main;
 
 import java.sql.SQLException;
 import java.util.Scanner;
+import manageCustomer.customer;
 import manageCustomer.customerDAO;
 import manageInvoice.invoiceDAO;
+import manageProduct.product;
 import manageProduct.productDAO;
 
 /**
@@ -18,6 +20,8 @@ public class test {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         boolean result = true;
+        int i;
+        
         productDAO pm = new productDAO();
         customerDAO cm = new customerDAO();
         invoiceDAO ig = new invoiceDAO();
@@ -43,12 +47,29 @@ public class test {
                     int product=sc.nextInt();
                     switch(product){
                         case 1:
-                            
+                            pm.selectProduct();
                             break;
                         case 2:
+                            String id=sc.next();
+                            String name=sc.next();
+                            String desc=sc.next();
+                            double pp=sc.nextDouble();
+                            double sp=sc.nextDouble();
+                            int qt=sc.nextInt();
+                            product p=new product(id,name,desc,pp,sp,qt);
+                            p.setpid(id);
+                            p.setpName(name);
+                            p.setDesc(desc);
+                            p.setpPrice(pp);
+                            p.setsPrice(sp);
+                            p.setqauantity(qt);
+                            pm.insertProduct(p);
+                            break;
                         case 3:
-                            
+                            break;
                         case 4:
+                            
+                            break;
                         case 0:
                             break;
                         default:
@@ -66,18 +87,37 @@ public class test {
                     int customer=sc.nextInt();
                     switch(customer){
                         case 1:
-                            System.out.println("");
+                            cm.selectCustomer();
                         case 2:
+                            String id=sc.next();
+                            String name=sc.next();
+                            String email=sc.next();
+                            String address=sc.next();
+                            int no=sc.nextInt();
+                            String dob=sc.next();
+                            String gender=sc.next();
+                            customer c=new customer(id,name,email,address,no,dob,gender);
+                            c.setcId(id);
+                            c.setcName(name);
+                            c.setemail(email);
+                            c.setaddress(address);
+                            c.setcNumber(customer);
+                            c.setdob(dob);
+                            c.setgender(gender);
+                            cm.insertCustomer(c);
                         case 3:
                         case 4:
                         break;
                     }
                 case 3:
+                    System.out.println("Select a case from Invoice generation");
+                    System.out.println("1. Generate invoice");
+                    System.out.println("2. View invoice");
                     System.out.println("Input No. ");
                     int invoice=sc.nextInt();
                     switch(invoice){
                         case 1:
-                            System.out.println("");
+                            ig.selectInvoice();
                     break;
                     }
                 case 4:
