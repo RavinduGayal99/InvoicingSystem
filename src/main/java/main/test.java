@@ -22,6 +22,16 @@ public class test {
         Scanner sc=new Scanner(System.in);
         boolean result = true;
         
+        String pid,pname,pdesc;
+        double pp,sp;
+        int qt;
+        
+        String cid,cname,email,address,dob,gender;
+        int tno;
+        
+        int inno,upp;
+        String date,cName,pNames;
+        double uppp,tppp,disc;
         
         productDAO pm = new productDAO();
         customerDAO cm = new customerDAO();
@@ -51,16 +61,16 @@ public class test {
                             pm.selectProduct();
                             break;
                         case 2:
-                            String id=sc.next();
-                            String name=sc.next();
-                            String desc=sc.next();
-                            double pp=sc.nextDouble();
-                            double sp=sc.nextDouble();
-                            int qt=sc.nextInt();
-                            product p=new product(id,name,desc,pp,sp,qt);
-                            p.setpid(id);
-                            p.setpName(name);
-                            p.setDesc(desc);
+                            pid=sc.next();
+                            pname=sc.next();
+                            pdesc=sc.next();
+                            pp=sc.nextDouble();
+                            sp=sc.nextDouble();
+                            qt=sc.nextInt();
+                            product p=new product(pid,pname,pdesc,pp,sp,qt);
+                            p.setpid(pid);
+                            p.setpName(pname);
+                            p.setDesc(pdesc);
                             p.setpPrice(pp);
                             p.setsPrice(sp);
                             p.setqauantity(qt);
@@ -69,7 +79,10 @@ public class test {
                         case 3:
                             break;
                         case 4:
-                            
+                            String id=sc.next();
+                            product pd=new product(id);
+                            pd.setpid(id);
+                            pm.deleteProduct(pd);
                             break;
                         case 0:
                             break;
@@ -90,19 +103,19 @@ public class test {
                         case 1:
                             cm.selectCustomer();
                         case 2:
-                            String id=sc.next();
-                            String name=sc.next();
-                            String email=sc.next();
-                            String address=sc.next();
-                            int no=sc.nextInt();
-                            String dob=sc.next();
-                            String gender=sc.next();
-                            customer c=new customer(id,name,email,address,no,dob,gender);
-                            c.setcId(id);
-                            c.setcName(name);
+                            cid=sc.next();
+                            cname=sc.next();
+                            email=sc.next();
+                            address=sc.next();
+                            tno=sc.nextInt();
+                            dob=sc.next();
+                            gender=sc.next();
+                            customer c=new customer(cid,cname,email,address,tno,dob,gender);
+                            c.setcId(cid);
+                            c.setcName(cname);
                             c.setemail(email);
                             c.setaddress(address);
-                            c.setcNumber(customer);
+                            c.setcNumber(tno);
                             c.setdob(dob);
                             c.setgender(gender);
                             cm.insertCustomer(c);
@@ -119,13 +132,13 @@ public class test {
                     switch(invoice){
                         case 1:
                             int inNo=sc.nextInt();
-                            String date=sc.next();
-                            String cName=sc.next();
-                            String pNames=sc.next();
-                            int upp=sc.nextInt();
-                            double uppp=sc.nextDouble();
-                            double tppp=sc.nextDouble();
-                            double disc=sc.nextDouble();
+                            date=sc.next();
+                            cName=sc.next();
+                            pNames=sc.next();
+                            upp=sc.nextInt();
+                            uppp=sc.nextDouble();
+                            tppp=sc.nextDouble();
+                            disc=sc.nextDouble();
                             invoice i=new invoice(inNo,date,cName,pNames,upp,uppp,tppp,disc);
                             ig.insertInvoice(i);
                             break;

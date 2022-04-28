@@ -30,6 +30,9 @@ public class customer {
         this.date_of_birth = date_of_birth;
         this.gender = gender;
     }
+    public customer(String customer_id){
+        this.customer_id = customer_id;
+    }
     //setters
     public void setcId(String customer_id){
         this.customer_id = customer_id;

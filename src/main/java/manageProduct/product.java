@@ -30,6 +30,10 @@ public class product {
         this.quantity = quantity;
     }
     
+    public product(String product_id){
+        this.product_id=product_id;
+    }
+    
     //setters
     
     public void setpid(String product_id){
