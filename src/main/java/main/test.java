@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 import manageCustomer.customer;
 import manageCustomer.customerDAO;
+import manageInvoice.invoice;
 import manageInvoice.invoiceDAO;
 import manageProduct.product;
 import manageProduct.productDAO;
@@ -20,7 +21,7 @@ public class test {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         boolean result = true;
-        int i;
+        
         
         productDAO pm = new productDAO();
         customerDAO cm = new customerDAO();
@@ -117,8 +118,20 @@ public class test {
                     int invoice=sc.nextInt();
                     switch(invoice){
                         case 1:
+                            int inNo=sc.nextInt();
+                            String date=sc.next();
+                            String cName=sc.next();
+                            String pNames=sc.next();
+                            int upp=sc.nextInt();
+                            double uppp=sc.nextDouble();
+                            double tppp=sc.nextDouble();
+                            double disc=sc.nextDouble();
+                            invoice i=new invoice(inNo,date,cName,pNames,upp,uppp,tppp,disc);
+                            ig.insertInvoice(i);
+                            break;
+                        case 2:
                             ig.selectInvoice();
-                    break;
+                            break;
                     }
                 case 4:
                     int x;
