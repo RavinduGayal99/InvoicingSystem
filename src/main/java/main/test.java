@@ -85,6 +85,8 @@ public class test {
                             pm.insertProduct(p);
                             break;
                         case 3:
+                            System.out.println("Enter product id:");
+                            id=sc.next();
                             
                             break;
                         case 4:
@@ -139,6 +141,8 @@ public class test {
                             cm.insertCustomer(c);
                             break;
                         case 3:
+                            System.out.println("Enter customer id:");
+                            id = sc.next();
                             
                             break;
                         case 4:
