@@ -29,15 +29,17 @@ public class test {
         String cid,cname,email,address,dob,gender;
         int tno;
         
-        int inno,upp;
+        int inNo,upp;
         String date,cName,pNames;
         double uppp,tppp,disc;
+        
+        String id;
         
         productDAO pm = new productDAO();
         customerDAO cm = new customerDAO();
         invoiceDAO ig = new invoiceDAO();
         try{
-        do{
+        
             System.out.println("Select a case from menu");
             System.out.println("1. Manage Products");
             System.out.println("2. Manage Customers");
@@ -61,11 +63,17 @@ public class test {
                             pm.selectProduct();
                             break;
                         case 2:
+                            System.out.println("Enter product id:");
                             pid=sc.next();
+                            System.out.println("Enter product name:");
                             pname=sc.next();
+                            System.out.println("Enter product description:");
                             pdesc=sc.next();
+                            System.out.println("Enter product purches price:");
                             pp=sc.nextDouble();
+                            System.out.println("Enter product selling price:");
                             sp=sc.nextDouble();
+                            System.out.println("Enter product quantity:");
                             qt=sc.nextInt();
                             product p=new product(pid,pname,pdesc,pp,sp,qt);
                             p.setpid(pid);
@@ -77,9 +85,11 @@ public class test {
                             pm.insertProduct(p);
                             break;
                         case 3:
+                            
                             break;
                         case 4:
-                            String id=sc.next();
+                            System.out.println("Enter product id:");
+                            id=sc.next();
                             product pd=new product(id);
                             pd.setpid(id);
                             pm.deleteProduct(pd);
@@ -88,7 +98,7 @@ public class test {
                             break;
                         default:
                             System.out.println("Enter a valid number!");
-                        break;
+                            break;
                     }
                 case 2:
                     System.out.println("Select a case from Customers");
@@ -102,13 +112,21 @@ public class test {
                     switch(customer){
                         case 1:
                             cm.selectCustomer();
+                            break;
                         case 2:
+                            System.out.println("Enter customer id:");
                             cid=sc.next();
+                            System.out.println("Enter customer name:");
                             cname=sc.next();
+                            System.out.println("Enter customer email:");
                             email=sc.next();
+                            System.out.println("Enter customer address:");
                             address=sc.next();
+                            System.out.println("Enter customer phone number:");
                             tno=sc.nextInt();
+                            System.out.println("Enter cusomer date of birth:");
                             dob=sc.next();
+                            System.out.println("Enter customer gender:");
                             gender=sc.next();
                             customer c=new customer(cid,cname,email,address,tno,dob,gender);
                             c.setcId(cid);
@@ -119,9 +137,17 @@ public class test {
                             c.setdob(dob);
                             c.setgender(gender);
                             cm.insertCustomer(c);
+                            break;
                         case 3:
+                            
+                            break;
                         case 4:
-                        break;
+                            System.out.println("Enter customer id:");
+                            id = sc.next();
+                            customer cd = new customer(id);
+                            cd.setcId(id);
+                            cm.deleteCustomer(cd);
+                            break;
                     }
                 case 3:
                     System.out.println("Select a case from Invoice generation");
@@ -131,13 +157,21 @@ public class test {
                     int invoice=sc.nextInt();
                     switch(invoice){
                         case 1:
-                            int inNo=sc.nextInt();
+                            System.out.println("Enter invoice number:");
+                            inNo=sc.nextInt();
+                            System.out.println("Enter date:");//check again
                             date=sc.next();
+                            System.out.println("Enter customer name:");
                             cName=sc.next();
+                            System.out.println("Enter product names:");
                             pNames=sc.next();
+                            System.out.println("Enter units per product:");
                             upp=sc.nextInt();
+                            System.out.println("Enter unit price per product:");
                             uppp=sc.nextDouble();
+                            System.out.println("Enter total price per product:");
                             tppp=sc.nextDouble();
+                            System.out.println("Enter discount:");
                             disc=sc.nextDouble();
                             invoice i=new invoice(inNo,date,cName,pNames,upp,uppp,tppp,disc);
                             ig.insertInvoice(i);
@@ -147,16 +181,15 @@ public class test {
                             break;
                     }
                 case 4:
-                    int x;
+                    //admin tasks
                     break;
                 case 0:
-                    result=false;
+                    
                     break;
                 default:
                     System.out.println("Enter a valid number from the list!");
                     break;
         }
-        }while(result);
         }catch(ClassNotFoundException ex){
             
         }
