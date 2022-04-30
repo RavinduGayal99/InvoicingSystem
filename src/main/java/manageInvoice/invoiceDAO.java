@@ -18,7 +18,7 @@ public class invoiceDAO {
     public static int insertInvoice(invoice in) throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
-        String queryString = "insert into invoice(invoice_number,invoice_date,customer_name,product_names,upp,uppp,tppp,discount) values('"+in.getiNumber()+"','"+in.getiDate()+"','"+in.getcName()+"','"+in.getpNames()+"','"+in.getupp()+"','"+in.getuppp()+"','"+in.gettppp()+"','"+in.getdis()+"')";
+        String queryString = "insert into invoice(invoice_number,customer_name,product_names,upp,uppp,tppp,discount) values('"+in.getiNumber()+"','"+in.getcName()+"','"+in.getpNames()+"','"+in.getupp()+"','"+in.getuppp()+"','"+in.gettppp()+"','"+in.getdis()+"')";
         int i = stmt.executeUpdate(queryString);
         return i;
     }

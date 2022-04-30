@@ -163,8 +163,6 @@ public class test {
                         case 1:
                             System.out.println("Enter invoice number:");
                             inNo=sc.nextInt();
-                            System.out.println("Enter date:");//check again
-                            date=sc.next();
                             System.out.println("Enter customer name:");
                             cName=sc.next();
                             System.out.println("Enter product names:");
@@ -177,7 +175,7 @@ public class test {
                             tppp=sc.nextDouble();
                             System.out.println("Enter discount:");
                             disc=sc.nextDouble();
-                            invoice i=new invoice(inNo,date,cName,pNames,upp,uppp,tppp,disc);
+                            invoice i=new invoice(inNo,cName,pNames,upp,uppp,tppp,disc);
                             ig.insertInvoice(i);
                             break;
                         case 2:

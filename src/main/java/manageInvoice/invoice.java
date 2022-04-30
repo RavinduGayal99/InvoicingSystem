@@ -10,7 +10,6 @@ package manageInvoice;
  */
 public class invoice {
     private int invoice_number;
-    private String invoice_date;
     private String customer_name;
     private String product_names;
     private int upp;    //unit per product
@@ -23,9 +22,8 @@ public class invoice {
     invoice(){
         
     }
-    public invoice(int invoice_number, String invoice_date, String customer_name, String product_names, int upp, double uppp, double tppp, double discount){
+    public invoice(int invoice_number, String customer_name, String product_names, int upp, double uppp, double tppp, double discount){
         this.invoice_number = invoice_number;
-        this.invoice_date = invoice_date;
         this.customer_name = customer_name;
         this.product_names = product_names;
         this.upp = upp;
@@ -38,9 +36,6 @@ public class invoice {
     
     public void setiNumber(int invoice_number){
         this.invoice_number = invoice_number;
-    }
-    public void setiDate(String invoice_date){
-        this.invoice_date = invoice_date;
     }
     public void setcName(String customer_name){
         this.customer_name = customer_name;
@@ -63,9 +58,6 @@ public class invoice {
     //getter
     public int getiNumber(){
         return invoice_number;
-    }
-    public String getiDate(){
-        return invoice_date;
     }
     public String getcName(){
         return customer_name;
