@@ -25,7 +25,7 @@ public class productDAO {
     public static int deleteProduct(product p) throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
-        String queryString = "delete from product_details where customer_id='"+p.getpid()+"'";
+        String queryString = "delete from product_details where product_id='"+p.getpid()+"'";
         int i = stmt.executeUpdate(queryString);
         return i;
     }
@@ -37,8 +37,8 @@ public class productDAO {
         while(rs.next()){
             String id=rs.getString("product_id");
             String name=rs.getString("product_name");
-            String desc=rs.getString("descripton");
-            String pprice=rs.getString("purches_price");
+            String desc=rs.getString("description");
+            String pprice=rs.getString("purchase_price");
             String sprice=rs.getString("selling_price");
             String quantity=rs.getString("quantity");
             
@@ -56,7 +56,7 @@ public class productDAO {
     public static int updateProductStock(product p) throws ClassNotFoundException,SQLException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
-        String queryString = "update product where product_id='"+p.getpid()+"' set quantity='"+p.getquantity()+"'";
+        String queryString = "update product_details where product_id='"+p.getpid()+"' set quantity='"+p.getquantity()+"'";
         int i = stmt.executeUpdate(queryString);
         return i;
     }

@@ -30,7 +30,7 @@ public class test {
         int tno;
         
         int inNo,upp;
-        String date,cName,pNames;
+        String cName,pNames;
         double uppp,tppp,disc;
         
         String id;
@@ -101,7 +101,7 @@ public class test {
                         default:
                             System.out.println("Enter a valid number!");
                             break;
-                    }
+                    }break;
                 case 2:
                     System.out.println("Select a case from Customers");
                     System.out.println("1. Veiw customers");
@@ -126,7 +126,7 @@ public class test {
                             address=sc.next();
                             System.out.println("Enter customer phone number:");
                             tno=sc.nextInt();
-                            System.out.println("Enter cusomer date of birth:");
+                            System.out.println("Enter cusomer date of birth(yyyy-mm-dd):");
                             dob=sc.next();
                             System.out.println("Enter customer gender:");
                             gender=sc.next();
@@ -152,7 +152,7 @@ public class test {
                             cd.setcId(id);
                             cm.deleteCustomer(cd);
                             break;
-                    }
+                    }break;
                 case 3:
                     System.out.println("Select a case from Invoice generation");
                     System.out.println("1. Generate invoice");
@@ -181,7 +181,7 @@ public class test {
                         case 2:
                             ig.selectInvoice();
                             break;
-                    }
+                    }break;
                 case 4:
                     //admin tasks
                     break;
