@@ -22,6 +22,7 @@ public class test {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         boolean result = true;
+        int x;
         
         String pid,pname,pdesc;
         double pp,sp;
@@ -61,9 +62,11 @@ public class test {
                     int product=sc.nextInt();
                     switch(product){
                         case 1:
+                            System.out.println("You selected-Veiw products");
                             pm.selectProduct();
                             break;
                         case 2:
+                            System.out.println("You selected-Insert products");
                             System.out.println("Enter product id:");
                             pid=sc.next();
                             System.out.println("Enter product name:");
@@ -83,19 +86,27 @@ public class test {
                             p.setpPrice(pp);
                             p.setsPrice(sp);
                             p.setqauantity(qt);
-                            pm.insertProduct(p);
+                            x = pm.insertProduct(p);
+                            if(x != 0){
+                                System.out.println("Data added successfully!");
+                            }
                             break;
                         case 3:
+                            System.out.println("You selected-Update products");
                             System.out.println("Enter product id:");
                             id=sc.next();
                             
                             break;
                         case 4:
+                            System.out.println("You selected-Delete products");
                             System.out.println("Enter product id:");
                             id=sc.next();
                             product pd=new product(id);
                             pd.setpid(id);
-                            pm.deleteProduct(pd);
+                            x = pm.deleteProduct(pd);
+                            if(x != 0){
+                                System.out.println("Data deleted successfully!");
+                            }
                             break;
                         case 0:
                             break;
@@ -114,9 +125,11 @@ public class test {
                     int customer=sc.nextInt();
                     switch(customer){
                         case 1:
+                            System.out.println("You selected-Veiw customers");
                             cm.selectCustomer();
                             break;
                         case 2:
+                            System.out.println("You selected-Insert customers");
                             System.out.println("Enter customer id:");
                             cid=sc.next();
                             System.out.println("Enter customer name:");
@@ -139,19 +152,27 @@ public class test {
                             c.setcNumber(tno);
                             c.setdob(dob);
                             c.setgender(gender);
-                            cm.insertCustomer(c);
+                            x = cm.insertCustomer(c);
+                            if(x != 0){
+                                System.out.println("Data added successfully!");
+                            }
                             break;
                         case 3:
+                            System.out.println("You selected-Update customers");
                             System.out.println("Enter customer id:");
                             id = sc.next();
                             
                             break;
                         case 4:
+                            System.out.println("You selected-Delete customers");
                             System.out.println("Enter customer id:");
                             id = sc.next();
                             customer cd = new customer(id);
                             cd.setcId(id);
-                            cm.deleteCustomer(cd);
+                            x = cm.deleteCustomer(cd);
+                            if(x != 0){
+                                System.out.println("Data deleted successfully!");
+                            }
                             break;
                     }break;
                 case 3:
@@ -162,6 +183,7 @@ public class test {
                     int invoice=sc.nextInt();
                     switch(invoice){
                         case 1:
+                            System.out.println("You selected-Generate invoice");
                             System.out.println("Enter invoice number:");
                             inNo=sc.nextInt();
                             System.out.println("Enter customer name:");
@@ -177,9 +199,13 @@ public class test {
                             System.out.println("Enter discount:");
                             disc=sc.nextDouble();
                             invoice i=new invoice(inNo,cName,pNames,upp,uppp,tppp,disc);
-                            ig.insertInvoice(i);
+                            x = ig.insertInvoice(i);
+                            if(x != 0){
+                                System.out.println("Data added successfully!");
+                            }
                             break;
                         case 2:
+                            System.out.println("You selected-Veiw invoice");
                             ig.selectInvoice();
                             break;
                     }break;
@@ -187,7 +213,7 @@ public class test {
                     //admin tasks
                     break;
                 case 0:
-                    
+                    System.out.println("Program Exit, Good bye!");
                     break;
                 default:
                     System.out.println("Enter a valid number from the list!");
