@@ -13,8 +13,8 @@ import java.io.IOException;
  */
 public class admin_tasks {
     public static void fileWriter(String log) throws ClassNotFoundException,IOException{
-        FileWriter adminTsk = new FileWriter("AdminLog.txt");
-        adminTsk.write(log);
+        FileWriter adminTsk = new FileWriter("AdminLog.txt",true);
+        adminTsk.write(log+"\n");
         adminTsk.close();
     }
 }
