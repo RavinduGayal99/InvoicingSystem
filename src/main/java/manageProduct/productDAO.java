@@ -4,7 +4,9 @@
  */
 package manageProduct;
 
+import admin.admin_tasks;
 import data.connectionClass;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,18 +17,26 @@ import java.sql.Statement;
  * @author Ravindu
  */
 public class productDAO {
-    public static int insertProduct(product p) throws ClassNotFoundException,SQLException{
+    public static int insertProduct(product p) throws ClassNotFoundException,SQLException,IOException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
+        admin_tasks aTsk =new admin_tasks();
         String queryString = "insert into product_details(product_id, product_name, description, purchase_price, selling_price, quantity) values('"+p.getpid()+"','"+p.getpName()+"','"+p.getdesc()+"','"+p.getpPrice()+"','"+p.getsPrice()+"','"+p.getquantity()+"')";
         int i = stmt.executeUpdate(queryString);
+        if(i != 0){
+            aTsk.fileWriter(queryString);
+        }
         return i;
     }
-    public static int deleteProduct(product p) throws ClassNotFoundException,SQLException{
+    public static int deleteProduct(product p) throws ClassNotFoundException,SQLException,IOException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
+        admin_tasks aTsk =new admin_tasks();
         String queryString = "delete from product_details where product_id='"+p.getpid()+"'";
         int i = stmt.executeUpdate(queryString);
+        if(i != 0){
+            aTsk.fileWriter(queryString);
+        }
         return i;
     }
     public static void selectProduct() throws ClassNotFoundException,SQLException{
@@ -46,11 +56,15 @@ public class productDAO {
         }
        
     }
-    public static int updateProduct(product p) throws ClassNotFoundException,SQLException{
+    public static int updateProduct(product p) throws ClassNotFoundException,SQLException,IOException{
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
+        admin_tasks aTsk =new admin_tasks();
         String queryString = "";
         int i = stmt.executeUpdate(queryString);
+        if(i != 0){
+            aTsk.fileWriter(queryString);
+        }
         return i;
     }
     public static int updateProductStock(product p) throws ClassNotFoundException,SQLException{

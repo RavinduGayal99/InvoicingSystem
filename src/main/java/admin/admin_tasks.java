@@ -4,10 +4,17 @@
  */
 package admin;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author Ravindu
  */
 public class admin_tasks {
-    
+    public static void fileWriter(String log) throws ClassNotFoundException,IOException{
+        FileWriter adminTsk = new FileWriter("AdminLog.txt");
+        adminTsk.write(log);
+        adminTsk.close();
+    }
 }

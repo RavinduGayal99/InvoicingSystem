@@ -4,6 +4,7 @@
  */
 package main;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 import manageCustomer.customer;
@@ -193,10 +194,13 @@ public class test {
                     break;
         }
         }catch(ClassNotFoundException ex){
-            
+            System.out.println("ClassNotFoundError!");
         }
         catch(SQLException ex){
-            
+            System.out.println("DatabaseError!");
+        }
+        catch(IOException ex){
+            System.out.println("IOError!");
         }
     }
 }
