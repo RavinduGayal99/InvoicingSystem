@@ -60,7 +60,7 @@ public class customerDAO {
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         admin_tasks aTsk =new admin_tasks();
-        String queryString = "update customer_details where customer_id='"+c.getcId()+"' set";
+        String queryString = "update customer_details set address='"+c.getaddress()+"' where customer_id='"+c.getcId()+"'";
         int i =stmt.executeUpdate(queryString);
         if(i != 0){
             aTsk.fileWriter(queryString);

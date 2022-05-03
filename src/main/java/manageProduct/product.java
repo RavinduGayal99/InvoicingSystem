@@ -34,6 +34,11 @@ public class product {
         this.product_id=product_id;
     }
     
+    public product(String product_id, double selling_price){
+        this.product_id=product_id;
+        this.selling_price=selling_price;
+    }
+    
     //setters
     
     public void setpid(String product_id){

@@ -1,2 +1,0 @@
-insert into product_details(product_id, product_name, description, purchase_price, selling_price, quantity) values('p001','chair','sit','800.0','1000.0','20')
-delete from product_details where product_id='p001'

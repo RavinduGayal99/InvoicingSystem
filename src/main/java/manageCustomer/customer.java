@@ -33,6 +33,10 @@ public class customer {
     public customer(String customer_id){
         this.customer_id = customer_id;
     }
+    public customer(String customer_id, String address){
+        this.customer_id = customer_id;
+        this.address = address;
+    }
     //setters
     public void setcId(String customer_id){
         this.customer_id = customer_id;

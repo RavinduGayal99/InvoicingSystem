@@ -60,7 +60,7 @@ public class productDAO {
         Connection con = connectionClass.getConnection();
         Statement stmt = con.createStatement();
         admin_tasks aTsk =new admin_tasks();
-        String queryString = "";
+        String queryString = "update product_details set selling_price='"+p.getsPrice()+"' where product_id='"+p.getpid()+"'";
         int i = stmt.executeUpdate(queryString);
         if(i != 0){
             aTsk.fileWriter(queryString);

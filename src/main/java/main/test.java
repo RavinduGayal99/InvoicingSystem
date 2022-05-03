@@ -96,7 +96,15 @@ public class test {
                             System.out.println("You selected-Update products");
                             System.out.println("Enter product id:");
                             id=sc.next();
-                            
+                            System.out.println("Enter new selling price");
+                            sp=sc.nextDouble();
+                            product pu=new product(id,sp);
+                            pu.setpid(id);
+                            pu.setsPrice(sp);
+                            x = pm.updateProduct(pu);
+                            if(x != 0){
+                                System.out.println("Data updated successfully!");
+                            }
                             break;
                         case 4:
                             System.out.println("You selected-Delete products");
@@ -163,7 +171,15 @@ public class test {
                             System.out.println("You selected-Update customers");
                             System.out.println("Enter customer id:");
                             id = sc.next();
-                            
+                            System.out.println("Enter new address:");
+                            address=sc.next();
+                            customer cu=new customer(id,address);
+                            cu.setcId(id);
+                            cu.setaddress(address);
+                            x = cm.updateCustomer(cu);
+                            if(x != 0){
+                                System.out.println("Data added successfully!");
+                            }
                             break;
                         case 4:
                             System.out.println("You selected-Delete customers");
