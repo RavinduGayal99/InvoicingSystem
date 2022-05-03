@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package main;
+import static admin.admin_tasks.fileReader;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -225,7 +226,7 @@ public class test {
                     }continue;
                 case 4:
                     System.out.println("You selected-Admin task");
-                    //admin tasks
+                    fileReader();
                     break;
                 case 0:
                     System.out.println("Program Exit, Good bye!");

@@ -4,8 +4,10 @@
  */
 package admin;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -16,5 +18,14 @@ public class admin_tasks {
         FileWriter adminTsk = new FileWriter("AdminLog.txt",true);
         adminTsk.write(log+"\n");
         adminTsk.close();
+    }
+    public static void fileReader() throws ClassNotFoundException,IOException{
+        File adminTsk = new File("AdminLog.txt");
+        Scanner scan = new Scanner(adminTsk);
+        while(scan.hasNextLine()){
+            String log = scan.nextLine();
+            System.out.println(log);
+        }
+        scan.close();
     }
 }
