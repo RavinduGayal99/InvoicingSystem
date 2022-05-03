@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package main;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -40,8 +39,9 @@ public class test {
         productDAO pm = new productDAO();
         customerDAO cm = new customerDAO();
         invoiceDAO ig = new invoiceDAO();
-        try{
         
+        do{
+        try{
             System.out.println("Select a case from menu");
             System.out.println("1. Manage Products");
             System.out.println("2. Manage Customers");
@@ -109,11 +109,12 @@ public class test {
                             }
                             break;
                         case 0:
+                            System.out.println("Main Menu");
                             break;
                         default:
                             System.out.println("Enter a valid number!");
                             break;
-                    }break;
+                    }continue;
                 case 2:
                     System.out.println("Select a case from Customers");
                     System.out.println("1. Veiw customers");
@@ -174,11 +175,18 @@ public class test {
                                 System.out.println("Data deleted successfully!");
                             }
                             break;
-                    }break;
+                        case 0:
+                            System.out.println("Main menu");
+                            break;
+                        default:
+                            System.out.println("Enter a valid number!");
+                            break;
+                    }continue;
                 case 3:
                     System.out.println("Select a case from Invoice generation");
                     System.out.println("1. Generate invoice");
                     System.out.println("2. View invoice");
+                    System.out.println("0. Main menu");
                     System.out.println("Input No. ");
                     int invoice=sc.nextInt();
                     switch(invoice){
@@ -208,12 +216,20 @@ public class test {
                             System.out.println("You selected-Veiw invoice");
                             ig.selectInvoice();
                             break;
-                    }break;
+                        case 0:
+                            System.out.println("Main menu");
+                            break;
+                        default:
+                            System.out.println("Enter a valid number!");
+                            break;
+                    }continue;
                 case 4:
+                    System.out.println("You selected-Admin task");
                     //admin tasks
                     break;
                 case 0:
                     System.out.println("Program Exit, Good bye!");
+                    result = false;
                     break;
                 default:
                     System.out.println("Enter a valid number from the list!");
@@ -228,5 +244,6 @@ public class test {
         catch(IOException ex){
             System.out.println("IOError!");
         }
+        }while(result);
     }
 }
